@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Резюме</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.14.0/dist/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+<a href="#resume-container" class="sr-only">Перейти к резюме</a>
+
+<div class="page-wrapper">
+  <div class="toolbar">
+    <div style="display:flex;gap:var(--space-2);align-items:center;">
+      <button class="btn btn-ghost wave-effect" id="reset-btn">
+        Сбросить
+      </button>
+      <button class="btn btn-primary wave-effect" id="download-btn">
+        Скачать PDF
+      </button>
+    </div>
+  </div>
+
+  <main id="resume-container">
+    <header class="resume-header">
+      <div>
+        <h1 id="resume-name" class="resume-name wave-effect" contenteditable="true">Имя Фамилия</h1>
+        <p id="resume-title" class="resume-title wave-effect" contenteditable="true">Должность</p>
+      </div>
+      <address class="resume-contacts">
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span id="resume-phone" contenteditable="true">+7 (999) 123-45-67</span>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span id="resume-email" contenteditable="true">mail@example.com</span>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span id="resume-location" contenteditable="true">Город, Страна</span>
+        </div>
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+          <span id="resume-github" contenteditable="true">github.com/example</span>
+        </div>
+      </address>
+    </header>
+
+    <div class="resume-body">
+      <section class="resume-main">
+        <div class="section">
+          <div class="section-header-row">
+            <h2 class="section-title">Опыт работы</h2>
+            <button class="add-action-btn wave-effect" id="add-exp-btn" title="Добавить опыт">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+          <div id="experience-list">
+            <article class="exp-item">
+              <div class="exp-header">
+                <span class="exp-role wave-effect" contenteditable="true">Должность</span>
+                <span class="exp-date wave-effect" contenteditable="true">2026 - 2026</span>
+              </div>
+              <p class="exp-company wave-effect" contenteditable="true">Наименование компании, Город</p>
+              <p class="exp-desc wave-effect" contenteditable="true">Описание должностных обязанностей и достижений.</p>
+              <button class="delete-btn delete-exp-btn" contenteditable="false" aria-label="Удалить опыт" style="margin-top: 8px;">&times;</button>
+            </article>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-header-row">
+            <h2 class="section-title">Проекты</h2>
+            <button class="add-action-btn wave-effect" id="add-proj-btn" title="Добавить проект">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+          <div id="projects-list">
+            <article class="exp-item">
+              <div class="exp-header">
+                <span class="exp-role wave-effect" contenteditable="true">Название проекта</span>
+                <span class="exp-date wave-effect" contenteditable="true">2026</span>
+              </div>
+              <p class="exp-desc wave-effect" contenteditable="true">Описание проекта, технологии и результаты.</p>
+              <button class="delete-btn delete-proj-btn" contenteditable="false" aria-label="Удалить проект" style="margin-top: 8px;">&times;</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <aside class="resume-sidebar">
+        <div class="section">
+          <div class="section-header-row">
+            <h2 class="section-title">Образование</h2>
+            <button class="add-action-btn wave-effect" id="add-edu-btn" title="Добавить образование">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+          <div id="education-list">
+            <div class="edu-item">
+              <p class="edu-degree wave-effect" contenteditable="true">Степень, Специальность</p>
+              <p class="edu-school wave-effect" contenteditable="true">Наименование, Город</p>
+              <p class="edu-year wave-effect" contenteditable="true">2026 - 2026</p>
+              <button class="delete-btn delete-edu-btn" contenteditable="false" aria-label="Удалить" style="margin-top: 4px;">&times;</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="section">
+          <div class="section-header-row">
+            <h2 class="section-title">Навыки</h2>
+            <button class="add-action-btn wave-effect" id="add-skill-btn" title="Добавить навык">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+          <ul class="skills-list" id="skills-list" role="list">
+            <li class="skill-tag wave-effect">
+              <span contenteditable="true">Навык</span>
+              <button class="delete-btn" contenteditable="false" aria-label="Удалить">&times;</button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- LANGUAGES -->
+        <div class="section">
+          <div class="section-header-row">
+            <h2 class="section-title">Языки</h2>
+            <button class="add-action-btn wave-effect" id="add-lang-btn" title="Добавить язык">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+          <div id="languages-list">
+            <div class="lang-item">
+              <div class="lang-header">
+                <div>
+                  <span class="lang-name" contenteditable="true">Русский</span>
+                  <span class="lang-level" contenteditable="true">Родной</span>
+                </div>
+                <button class="delete-btn" contenteditable="false" aria-label="Удалить">&times;</button>
+              </div>
+              <div class="lang-bar clickable-bar" title="Кликните для изменения уровня"><div class="lang-fill" style="width:100%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Интересы</h2>
+          <p id="resume-hobbies" class="summary-text wave-effect" contenteditable="true" style="font-size:var(--text-sm)">Интересы.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+
+<div class="save-toast" id="save-toast" role="status" aria-live="polite">Изменения сохранены</div>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
